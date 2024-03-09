@@ -1,0 +1,41 @@
+{% extends 'question.html' %}
+
+{% block content%}
+<div class="progress" style="height: 2em;">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+         style="width: {{progress_bar}}%" aria-valuenow="{{progress_bar}}" aria-valuemin="0" aria-valuemax="100">
+        {{progress_bar}} {% if progress_bar != 0 %} % {%endif%}
+    </div>
+</div>
+<div>
+    <form action="answer" method="POST">
+        <div>
+            <h3 class="display-5">Demographic and Screening Questions:</h3>
+            <h6 class="display-6"> In what Age category do you belong? </h6>
+            <div class="mb-3">
+                <select class="form-select" aria-label="Default select example" name="age_category">
+                    <option selected>Select age category</option>
+                    <option value="1">18-24</option>
+                    <option value="2">25-29</option>
+                    <option value="3">30-34</option>
+                    <option value="4">35-39</option>
+                    <option value="5">40-44</option>
+                    <option value="6">45-49</option>
+                    <option value="7">50-54</option>
+                    <option value="8">55-59</option>
+                    <option value="9">60-64</option>
+                    <option value="10">65-69</option>
+                    <option value="11">70-74</option>
+                    <option value="12">75-79</option>
+                    <option value="13">80+</option>
+                </select>
+            </div>
+            <input type="hidden" name="question_number" value="{{question_number}}">
+            <div class="space-between">
+                <input name="back" type="submit" value="Back" class="btn btn-outline-danger btn-lg width-submit">
+                <input name="next" type="submit" value="Next" class="btn btn-outline-success btn-lg width-submit">
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

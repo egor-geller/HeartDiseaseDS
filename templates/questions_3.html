@@ -1,0 +1,135 @@
+{% extends 'question.html' %}
+
+{% block content%}
+<div class="progress" style="height: 2em;">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+         style="width: {{progress_bar}}%" aria-valuenow="{{progress_bar}}" aria-valuemin="0" aria-valuemax="100">
+        {{progress_bar}} {% if progress_bar != 0 %} % {%endif%}
+    </div>
+</div>
+<div>
+    <form action="answer" method="POST">
+        <div>
+            <h3 class="display-5">Demographic and Screening Questions:</h3>
+            <h6 class="display-6"> How tall are you? </h6>
+
+            <div class="mb-3">
+                <select class="form-select" aria-label="Default select example" id="age_category" name="height"
+                        onchange="changeFunc();">
+                    <option selected value="">Choose Feet or Centimeters</option>
+                    <option value="1">Feet and Inches</option>
+                    <option value="2">Centimeters</option>
+                </select>
+            </div>
+            <div id="first" class="side-by-side">
+                <div class="row g-2">
+                    <div class="col-md">
+                        <div id="feet" class="form-floating mb-3">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md">
+                        <div id="inch" class="form-floating mb-3">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="second" class="form-floating mb-3">
+
+            </div>
+            <!--
+            <label for="feet">Feet</label>
+            <input type="number" id="feet" name="feet" value="3" min="3" max="7" step="1">
+            <label for="inches">Inches</label>
+            <input type="number" id="inches" name="inches" value="0" min="0" max="11" step="1">
+
+            <label for="cent">Centimeters</label>
+            <input type="number" id="cent" name="cent" value="170" min="100" max="230" step="1">
+            -->
+            <input type="hidden" name="question_number" value="{{question_number}}">
+            <div class="space-between">
+                <input name="back" type="submit" value="Back" class="btn btn-outline-danger btn-lg width-submit">
+                <input name="next" type="submit" value="Next" class="btn btn-outline-success btn-lg width-submit">
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    function changeFunc() {
+        const elem = document.getElementById("age_category");
+        const value = elem.value;
+        console.log(value)
+        if(value == 1) {
+            const parentSec = document.getElementById("second")
+            parentSec.innerHTML = "";
+
+            const label = document.createElement("label");
+            label.setAttribute('for', 'feet');
+            label.innerHTML = "Feet";
+            const input = document.createElement("input");
+            input.setAttribute('type', 'number')
+            input.setAttribute('id', 'feet')
+            input.setAttribute('class', 'form-control')
+            input.setAttribute('name', 'feet')
+            input.setAttribute('placeholder', 'Feet')
+            input.setAttribute('min', '3')
+            input.setAttribute('max', '7')
+            input.setAttribute('step', '1')
+
+
+            const labelInch = document.createElement("label");
+            labelInch.setAttribute('for', 'inches');
+            labelInch.innerHTML = "Inches";
+            const inputInch = document.createElement("input");
+            inputInch.setAttribute('type', 'number')
+            inputInch.setAttribute('id', 'inches')
+            inputInch.setAttribute('class', 'form-control')
+            inputInch.setAttribute('name', 'inches')
+            inputInch.setAttribute('placeholder', 'Inches')
+            inputInch.setAttribute('min', '0')
+            inputInch.setAttribute('max', '11')
+            inputInch.setAttribute('step', '1')
+
+            const parentFeet = document.getElementById("feet")
+            const parentInch = document.getElementById("inch")
+
+            parentFeet.appendChild(input)
+            parentFeet.appendChild(label)
+            parentInch.appendChild(inputInch)
+            parentInch.appendChild(labelInch)
+        } else if (value == 2) {
+            const parentFirst = document.getElementById("first")
+            parentFirst.innerHTML = "";
+
+            const labelCent = document.createElement("label");
+            labelCent.setAttribute('for', 'cent');
+            labelCent.innerHTML = "Centimeters";
+            const input = document.createElement("input");
+            input.setAttribute('type', 'number')
+            input.setAttribute('id', 'cent')
+            input.setAttribute('class', 'form-control')
+            input.setAttribute('name', 'cent')
+            input.setAttribute('placeholder', 'Centimeters')
+            input.setAttribute('min', '100')
+            input.setAttribute('max', '230')
+            input.setAttribute('step', '1')
+
+            const parent = document.getElementById("second")
+            parent.appendChild(input)
+            parent.appendChild(labelCent)
+        } else {
+            const parentFirst = document.getElementById("first")
+            const parentSec = document.getElementById("second")
+            if(parentFirst) {
+                parentFirst.innerHTML = "";
+            }
+            if (parentSec) {
+                parentSec.innerHTML = "";
+            }
+        }
+    }
+</script>
+{% endblock %}
