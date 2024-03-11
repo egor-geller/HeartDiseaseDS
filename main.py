@@ -47,6 +47,39 @@ def save_data(form):
         answers['sex'] = form['sex']
     elif 'height' in form:
         answers['height'] = form['height']
+    elif 'smoke_yes' in form:
+        answers['smoke'] = form['smoke_yes']
+    elif 'smoke_no' in form:
+        answers['smoke'] = form['smoke_no']
+    elif 'general_health' in form:
+        answers['general_health'] = form['general_health']
+    elif 'doctor_visit' in form:
+        answers['doctor_visit'] = form['doctor_visit']
+    elif 'exercise_yes' in form:
+        answers['exercise_yes'] = form['exercise_yes']
+    elif 'exercise_no' in form:
+        answers['exercise_no'] = form['exercise_no']
+    elif 'depressive_disorder_yes' in form:
+        answers['depressive_disorder_yes'] = form['depressive_disorder_yes']
+    elif 'depressive_disorder_no' in form:
+        answers['depressive_disorder_no'] = form['depressive_disorder_no']
+    elif 'diabetes_yes' in form:
+        answers['diabetes_yes'] = form['diabetes_yes']
+    elif 'diabetes_no' in form:
+        answers['diabetes_no'] = form['diabetes_no']
+    elif 'arthritis_yes' in form:
+        answers['arthritis_yes'] = form['arthritis_yes']
+    elif 'arthritis_no' in form:
+        answers['arthritis_no'] = form['arthritis_no']
+    elif 'skin_cancer_yes' in form:
+        answers['skin_cancer_yes'] = form['skin_cancer_yes']
+    elif 'skin_cancer_no' in form:
+        answers['skin_cancer_no'] = form['skin_cancer_no']
+    elif 'other_cancer_yes' in form:
+        answers['other_cancer_yes'] = form['other_cancer_yes']
+    elif 'other_cancer_no' in form:
+        answers['other_cancer_no'] = form['other_cancer_no']
+
     print(answers)
 
 
