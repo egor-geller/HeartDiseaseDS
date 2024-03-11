@@ -1,0 +1,37 @@
+{% extends 'question.html' %}
+
+{% block content%}
+<section class="progress" style="height: 2em;">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+         style="width: {{progress_bar}}%" aria-valuenow="{{progress_bar}}" aria-valuemin="0" aria-valuemax="100">
+        {{progress_bar}} {% if progress_bar != 0 %} % {%endif%}
+    </div>
+</section>
+<section>
+    <form action="answer" method="POST">
+        <section>
+            <h3 class="display-5">Exercise:</h3>
+            <h6 class="display-6"> During the past month, other than your regular job, did you participate in any
+                physical activities or exercises such as running, calisthenics, golf, gardening, or walking for
+                exercise? </h6>
+            <section>
+                <div class="form-check form-check-inline space-between-radio">
+                    <label for="exercise_yes" class="form-check-label">Yes</label>
+                    <input type="radio" class="form-check-input" id="exercise_yes" name="exercise_yes" value="yes"
+                           aria-label="yes">
+                </div>
+                <div class="form-check form-check-inline">
+                    <label for="exercise_no" class="form-check-label">No</label>
+                    <input type="radio" class="form-check-input" id="exercise_no" name="exercise_no" value="no"
+                           aria-label="no">
+                </div>
+            </section>
+            <input type="hidden" name="question_number" value="{{question_number}}">
+            <div class="space-between">
+                <input name="back" type="submit" value="Back" class="btn btn-outline-danger btn-lg width-submit">
+                <input name="next" type="submit" value="Next" class="btn btn-outline-success btn-lg width-submit">
+            </div>
+        </section>
+    </form>
+</section>
+{% endblock %}

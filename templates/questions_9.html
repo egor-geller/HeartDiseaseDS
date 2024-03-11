@@ -1,0 +1,53 @@
+{% extends 'question.html' %}
+
+{% block content%}
+<section class="progress" style="height: 2em;">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+         style="width: {{progress_bar}}%" aria-valuenow="{{progress_bar}}" aria-valuemin="0" aria-valuemax="100">
+        {{progress_bar}} {% if progress_bar != 0 %} % {%endif%}
+    </div>
+</section>
+<section>
+    <form action="answer" method="POST">
+        <section>
+            <h3 class="display-5">Food and Drink Consumption:</h3>
+            <section class="container">
+                <section class="row">
+                    <section class="col">
+                        <p>
+                            During the past 30 days, how many days did you have at least one drink of any alcoholic
+                            beverage
+                            such as
+                            beer, wine, a malt beverage or liquor?
+                        </p>
+                    </section>
+                    <section class="col">
+                        <label for="drinks" class="form-label">How many drinks?</label>
+                        <input type="range" class="form-range" id="drinks" name="drinks" min="0" max="30" step="1"
+                               value="0" list="markers">
+                        <datalist id="markers">
+                            <option value="0" label="0"></option>
+                            <option value="100" label="30"></option>
+                        </datalist>
+                    </section>
+                </section>
+                <section class="row">
+                    <select class="form-select" aria-label="Default select example" name="doctor_visit">
+                        <option selected>Select</option>
+                        <option value="1">Within the past year</option>
+                        <option value="2">Within the past 2 years</option>
+                        <option value="5">Within the past 5 years</option>
+                        <option value="6">5 or mote years ago</option>
+                        <option value="0">Never</option>
+                    </select>
+                </section>
+            </section>
+            <input type="hidden" name="question_number" value="{{question_number}}">
+            <div class="space-between">
+                <input name="back" type="submit" value="Back" class="btn btn-outline-danger btn-lg width-submit">
+                <input name="next" type="submit" value="Next" class="btn btn-outline-success btn-lg width-submit">
+            </div>
+        </section>
+    </form>
+</section>
+{% endblock %}

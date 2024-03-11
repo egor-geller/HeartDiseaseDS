@@ -1,0 +1,33 @@
+{% extends 'question.html' %}
+
+{% block content%}
+<section class="progress" style="height: 2em;">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+         style="width: {{progress_bar}}%" aria-valuenow="{{progress_bar}}" aria-valuemin="0" aria-valuemax="100">
+        {{progress_bar}} {% if progress_bar != 0 %} % {%endif%}
+    </div>
+</section>
+<section>
+    <form action="answer" method="POST">
+        <section>
+            <h3 class="display-5">Health Status:</h3>
+            <h6 class="display-6"> Would you say that in general, your health is </h6>
+            <section>
+                <select class="form-select" aria-label="Default select example" name="general_health">
+                    <option selected>Select</option>
+                    <option value="Male">Poor</option>
+                    <option value="Fair">Fair</option>
+                    <option value="Good">Good</option>
+                    <option value="Very Good">Very Good</option>
+                    <option value="Excellent">Excellent</option>
+                </select>
+            </section>
+            <input type="hidden" name="question_number" value="{{question_number}}">
+            <div class="space-between">
+                <input name="back" type="submit" value="Back" class="btn btn-outline-danger btn-lg width-submit">
+                <input name="next" type="submit" value="Next" class="btn btn-outline-success btn-lg width-submit">
+            </div>
+        </section>
+    </form>
+</section>
+{% endblock %}

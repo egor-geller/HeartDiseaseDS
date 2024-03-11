@@ -1,0 +1,34 @@
+{% extends 'question.html' %}
+
+{% block content%}
+<section class="progress" style="height: 2em;">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+         style="width: {{progress_bar}}%" aria-valuenow="{{progress_bar}}" aria-valuemin="0" aria-valuemax="100">
+        {{progress_bar}} {% if progress_bar != 0 %} % {%endif%}
+    </div>
+</section>
+<section>
+    <form action="answer" method="POST">
+        <section>
+            <h3 class="display-5">Health Care Access:</h3>
+            <h6 class="display-6"> About how long has it been since you last visited a doctor for a routine
+                checkup? </h6>
+            <section>
+                <select class="form-select" aria-label="Default select example" name="doctor_visit">
+                    <option selected>Select</option>
+                    <option value="1">Within the past year</option>
+                    <option value="2">Within the past 2 years</option>
+                    <option value="5">Within the past 5 years</option>
+                    <option value="6">5 or mote years ago</option>
+                    <option value="0">Never</option>
+                </select>
+            </section>
+            <input type="hidden" name="question_number" value="{{question_number}}">
+            <div class="space-between">
+                <input name="back" type="submit" value="Back" class="btn btn-outline-danger btn-lg width-submit">
+                <input name="next" type="submit" value="Next" class="btn btn-outline-success btn-lg width-submit">
+            </div>
+        </section>
+    </form>
+</section>
+{% endblock %}
