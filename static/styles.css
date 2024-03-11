@@ -10,6 +10,10 @@ body {
     background-color: rgb(230, 232, 235);
 }
 
+main {
+    margin-top: 3rem;
+}
+
 .width-submit {
     width: 20vw;
 }
@@ -51,3 +55,23 @@ p {
 .side-by-side {
     display: grid;
 }
+
+input[type='radio'] {
+     transform: scale(1.5);
+}
+
+.space-between-radio {
+    margin-top: 1rem;
+    margin-right: 3rem;
+}
+
+datalist {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+option {
+  padding: 0;
+}
+
