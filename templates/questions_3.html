@@ -1,13 +1,13 @@
 {% extends 'question.html' %}
 
 {% block content%}
-<div class="progress" style="height: 2em;">
+<section class="progress" style="height: 2em;">
     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
          style="width: {{progress_bar}}%" aria-valuenow="{{progress_bar}}" aria-valuemin="0" aria-valuemax="100">
         {{progress_bar}} {% if progress_bar != 0 %} % {%endif%}
     </div>
-</div>
-<div>
+</section>
+<section>
     <form action="answer" method="POST">
         <div>
             <h3 class="display-5">Demographic and Screening Questions:</h3>
@@ -40,15 +40,6 @@
             <div id="second" class="form-floating mb-3">
 
             </div>
-            <!--
-            <label for="feet">Feet</label>
-            <input type="number" id="feet" name="feet" value="3" min="3" max="7" step="1">
-            <label for="inches">Inches</label>
-            <input type="number" id="inches" name="inches" value="0" min="0" max="11" step="1">
-
-            <label for="cent">Centimeters</label>
-            <input type="number" id="cent" name="cent" value="170" min="100" max="230" step="1">
-            -->
             <input type="hidden" name="question_number" value="{{question_number}}">
             <div class="space-between">
                 <input name="back" type="submit" value="Back" class="btn btn-outline-danger btn-lg width-submit">
@@ -56,7 +47,8 @@
             </div>
         </div>
     </form>
-</div>
+</section>
+<!-- TODO: Calculate height and assign it to hidden input 'height'-->
 <script>
     function changeFunc() {
         const elem = document.getElementById("age_category");

@@ -1,13 +1,13 @@
 {% extends 'question.html' %}
 
 {% block content%}
-<div class="progress" style="height: 2em;">
+<section class="progress" style="height: 2em;">
     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
          style="width: {{progress_bar}}%" aria-valuenow="{{progress_bar}}" aria-valuemin="0" aria-valuemax="100">
         {{progress_bar}} {% if progress_bar != 0 %} % {%endif%}
     </div>
-</div>
-<div>
+</section>
+<section>
     <form action="answer" method="POST">
         <div>
             <h4 class="display-6"> Enter your name: </h4>
@@ -22,5 +22,5 @@
             </div>
         </div>
     </form>
-</div>
+</section>
 {% endblock %}

@@ -9,47 +9,52 @@
     <title>Welcome</title>
 </head>
 <body>
-<main>
-    <H1 class="display-4"> Heart Disease Risk Prediction using Machine Learning Algorithms </H1>
+<main class="container">
+    <section class="row">
+        <H1 class="display-4"> Heart Disease Risk Prediction using Machine Learning Algorithms </H1>
 
-    <div class="accordion" id="accordionFeat">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="true"
-                        aria-controls="panelsStayOpen-collapseOne">
-                    Learn more about our project
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse"
-                 aria-labelledby="panelsStayOpen-headingOne" data-bs-parent="#accordionFeat">
-                <div class="accordion-body">
-                    TODO: PUT SOME INFORMATION AND LINKS ABOUT THE PROJECT
+        <div class="accordion" id="accordionFeat">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseOne">
+                        Learn more about our project
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse"
+                     aria-labelledby="panelsStayOpen-headingOne" data-bs-parent="#accordionFeat">
+                    <div class="accordion-body">
+                        TODO: PUT SOME INFORMATION AND LINKS ABOUT THE PROJECT
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="disclaimer">
-        <form action="questions" method="POST">
-            <div>
-                <h3 class="display-6">Medical Disclaimer</h3>
-                <p>
-                    The contents of this website are not intended to diagnose or treat any disease, or offer personal
-                    medical
-                    advice. You should seek the advice of your physician or other qualified health provider with any
-                    questions
-                    you may have regarding a medical condition. Never disregard professional medical advice or delay in
-                    seeking
-                    it because of something you have read on this website.
-                </p>
-            </div>
-            <div class="space-between">
-                <input name="agree" type="submit" value="Agree and continue" class="btn btn-outline-success btn-lg ">
-                <input name="disagree" type="submit" value="Disagree" class="btn btn-outline-danger btn-lg">
-            </div>
-        </form>
-    </div>
+        <div class="disclaimer">
+            <form action="questions" method="POST">
+                <div>
+                    <h3 class="display-6">Medical Disclaimer</h3>
+                    <p>
+                        The contents of this website are not intended to diagnose or treat any disease, or offer
+                        personal
+                        medical
+                        advice. You should seek the advice of your physician or other qualified health provider with any
+                        questions
+                        you may have regarding a medical condition. Never disregard professional medical advice or delay
+                        in
+                        seeking
+                        it because of something you have read on this website.
+                    </p>
+                </div>
+                <div class="space-between">
+                    <input name="agree" type="submit" value="Agree and continue"
+                           class="btn btn-outline-success btn-lg ">
+                    <input name="disagree" type="submit" value="Disagree" class="btn btn-outline-danger btn-lg">
+                </div>
+            </form>
+        </div>
+    </section>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
