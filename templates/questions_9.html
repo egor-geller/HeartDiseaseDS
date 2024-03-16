@@ -22,32 +22,103 @@
                         </p>
                     </section>
                     <section class="col">
-                        <label for="drinks" class="form-label">How many drinks?</label>
+                        <label for="drinks" id="label-drinks" class="form-label">How many drinks?</label>
                         <input type="range" class="form-range" id="drinks" name="drinks" min="0" max="30" step="1"
-                               value="0" list="markers">
+                               value="0" list="markers" onchange="getValue(this.value)">
+                        <input type="hidden" id="drink_range" name="drink_range" value="0">
                         <datalist id="markers">
                             <option value="0" label="0"></option>
+                            <option value="30" label="10"></option>
+                            <option value="60" label="20"></option>
                             <option value="100" label="30"></option>
                         </datalist>
                     </section>
                 </section>
+                <br>
                 <section class="row">
-                    <select class="form-select" aria-label="Default select example" name="doctor_visit">
-                        <option selected>Select</option>
-                        <option value="1">Within the past year</option>
-                        <option value="2">Within the past 2 years</option>
-                        <option value="5">Within the past 5 years</option>
-                        <option value="6">5 or mote years ago</option>
-                        <option value="0">Never</option>
-                    </select>
+                    <h5>
+                        Now think about the foods you ate during the past month, that is, the past 30 days,
+                        including meals and snacks.
+                    </h5>
+                </section>
+                <section class="row">
+                    <section class="col">
+                        <p>
+                            Not including juices, how often did you eat fruit?
+                        </p>
+                    </section>
+                    <section class="col">
+                        <select class="form-select" aria-label="eat_fruit" name="eat_fruit">
+                            <option selected>Select</option>
+                            <option value="1">Per day</option>
+                            <option value="2">Per week</option>
+                            <option value="3">Per Month</option>
+                        </select>
+                    </section>
+                </section>
+                <section class="row">
+                    <section class="col">
+                        <p>
+                            How often did you eat a green leafy or lettuce salad, with or without other vegetables?
+                        </p>
+                    </section>
+                    <section class="col">
+                        <select class="form-select" aria-label="veggies" name="veggies">
+                            <option selected>Select</option>
+                            <option value="1">Per day</option>
+                            <option value="2">Per week</option>
+                            <option value="3">Per Month</option>
+                        </select>
+                    </section>
+                </section>
+                <section class="row">
+                    <section class="col">
+                        <p>
+                            How often did you eat any kind of fried potatoes, including French fries, home fries, or
+                            hash browns?
+                        </p>
+                    </section>
+                    <section class="col">
+                        <select class="form-select" aria-label="fried" name="fried">
+                            <option selected>Select</option>
+                            <option value="1">Per day</option>
+                            <option value="2">Per week</option>
+                            <option value="3">Per Month</option>
+                        </select>
+                    </section>
                 </section>
             </section>
             <input type="hidden" name="question_number" value="{{question_number}}">
             <div class="space-between">
                 <input name="back" type="submit" value="Back" class="btn btn-outline-danger btn-lg width-submit">
-                <input name="next" type="submit" value="Next" class="btn btn-outline-success btn-lg width-submit">
+                <input name="next_end" type="submit" value="Next" class="btn btn-outline-success btn-lg width-submit">
             </div>
         </section>
     </form>
 </section>
+<script>
+    const val = document.getElementById("drinks");
+    const label = document.getElementById("label-drinks");
+
+    val.addEventListener('mousemove', (e) => {
+        const num = parseInt(calcSliderPos(e));
+        if(isNaN(num) || num < 0) {
+            return label.innerHTML = "How many drinks?";
+        }
+        if(isNaN(num) || num > 31) {
+            return label.innerHTML = "How many drinks? " + 30;
+        }
+            return label.innerHTML = "How many drinks? " + num;
+
+    });
+
+    function calcSliderPos(e) {
+        return ( e.clientX - e.target.offsetLeft ) / e.target.clientWidth * parseFloat(e.target.getAttribute('max'));
+    }
+
+    function getValue(val) {
+        const hidden = document.getElementById("drink_range");
+        hidden.value = val;
+    }
+</script>
 {% endblock %}
