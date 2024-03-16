@@ -8,12 +8,15 @@
     </div>
 </section>
 <section>
-    <form action="answer" method="POST">
+    <form action="answer" method="POST" class="needs-validation" novalidate>
         <div>
             <h4 class="display-6"> Enter your name: </h4>
-            <div class="mb-3">
+            <div class="input-group has-validation mb-3">
                 <label for="user_name" class="form-label"></label>
-                <input type="text" class="form-control" id="user_name" name="user_name" placeholder="">
+                <input type="text" class="form-control" id="user_name" name="user_name" placeholder="" required>
+                <div class="invalid-feedback">
+                    Please enter your name
+                </div>
             </div>
             <input type="hidden" name="question_number" value="{{question_number}}">
             <div class="space-between">

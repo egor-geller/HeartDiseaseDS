@@ -8,7 +8,7 @@
     </div>
 </section>
 <section>
-    <form action="answer" method="POST">
+    <form action="answer" method="POST" class="needs-validation" novalidate>
         <section>
             <h3 class="display-5">Food and Drink Consumption:</h3>
             <section class="container">
@@ -24,7 +24,7 @@
                     <section class="col">
                         <label for="drinks" id="label-drinks" class="form-label">How many drinks?</label>
                         <input type="range" class="form-range" id="drinks" name="drinks" min="0" max="30" step="1"
-                               value="0" list="markers" onchange="getValue(this.value)">
+                               value="0" list="markers" onchange="getValue(this.value)" required>
                         <input type="hidden" id="drink_range" name="drink_range" value="0">
                         <datalist id="markers">
                             <option value="0" label="0"></option>
@@ -48,8 +48,8 @@
                         </p>
                     </section>
                     <section class="col">
-                        <select class="form-select" aria-label="eat_fruit" name="eat_fruit">
-                            <option selected>Select</option>
+                        <select class="form-select" aria-label="eat_fruit" name="eat_fruit" required>
+                            <option selected disabled value="">Select</option>
                             <option value="1">Per day</option>
                             <option value="2">Per week</option>
                             <option value="3">Per Month</option>
@@ -63,8 +63,8 @@
                         </p>
                     </section>
                     <section class="col">
-                        <select class="form-select" aria-label="veggies" name="veggies">
-                            <option selected>Select</option>
+                        <select class="form-select" aria-label="veggies" name="veggies" required>
+                            <option selected disabled value="">Select</option>
                             <option value="1">Per day</option>
                             <option value="2">Per week</option>
                             <option value="3">Per Month</option>
@@ -79,8 +79,8 @@
                         </p>
                     </section>
                     <section class="col">
-                        <select class="form-select" aria-label="fried" name="fried">
-                            <option selected>Select</option>
+                        <select class="form-select" aria-label="fried" name="fried" required>
+                            <option selected disabled value="">Select</option>
                             <option value="1">Per day</option>
                             <option value="2">Per week</option>
                             <option value="3">Per Month</option>

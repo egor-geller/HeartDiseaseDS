@@ -8,20 +8,20 @@
     </div>
 </section>
 <section>
-    <form action="answer" method="POST">
+    <form action="answer" method="POST" class="needs-validation" novalidate>
         <section>
             <h3 class="display-5">Demographic and Screening Questions:</h3>
             <h6 class="display-6"> Have you smoked at least 100 cigarettes in your entire life? </h6>
             <section>
                 <div class="form-check form-check-inline space-between-radio">
                     <label for="smoke_yes" class="form-check-label">Yes</label>
-                    <input type="radio" class="form-check-input" id="smoke_yes" name="smoke_yes" value="yes"
-                           aria-label="yes">
+                    <input type="radio" class="form-check-input" id="smoke_yes" name="smoke" value="yes"
+                           aria-label="yes" required>
                 </div>
                 <div class="form-check form-check-inline">
                     <label for="smoke_no" class="form-check-label">No</label>
-                    <input type="radio" class="form-check-input" id="smoke_no" name="smoke_no" value="no"
-                           aria-label="no">
+                    <input type="radio" class="form-check-input" id="smoke_no" name="smoke" value="no"
+                           aria-label="no" required>
                 </div>
             </section>
             <input type="hidden" name="question_number" value="{{question_number}}">

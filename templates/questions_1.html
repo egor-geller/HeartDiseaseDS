@@ -8,13 +8,13 @@
     </div>
 </section>
 <section>
-    <form action="answer" method="POST">
+    <form action="answer" method="POST" class="needs-validation" novalidate>
         <div>
             <h3 class="display-5">Demographic and Screening Questions:</h3>
             <h6 class="display-6"> In what Age category do you belong? </h6>
             <div class="mb-3">
-                <select class="form-select" aria-label="Default select example" name="age_category">
-                    <option selected>Select age category</option>
+                <select class="form-select" aria-label="Default select example" name="age_category" required>
+                    <option selected disabled value="">Select age category</option>
                     <option value="1">18-24</option>
                     <option value="2">25-29</option>
                     <option value="3">30-34</option>
@@ -29,6 +29,9 @@
                     <option value="12">75-79</option>
                     <option value="13">80+</option>
                 </select>
+                <div class="invalid-feedback">
+                    Please select a valid age category.
+                </div>
             </div>
             <input type="hidden" name="question_number" value="{{question_number}}">
             <div class="space-between">

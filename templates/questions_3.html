@@ -8,18 +8,21 @@
     </div>
 </section>
 <section>
-    <form action="answer" method="POST">
+    <form action="answer" method="POST" class="needs-validation" novalidate>
         <div>
             <h3 class="display-5">Demographic and Screening Questions:</h3>
             <h6 class="display-6"> How tall are you? </h6>
 
             <div class="mb-3">
-                <select class="form-select" aria-label="Default select example" id="age_category" name="height"
-                        onchange="changeFunc();">
-                    <option selected value="">Choose Feet or Centimeters</option>
+                <select class="form-select" aria-label="Default select example" id="height"
+                        onchange="changeFunc();" required>
+                    <option selected disabled value="">Choose Feet or Centimeters</option>
                     <option value="1">Feet and Inches</option>
                     <option value="2">Centimeters</option>
                 </select>
+                <div class="invalid-feedback">
+                    Please select a valid age category.
+                </div>
             </div>
             <div id="first" class="side-by-side">
                 <div class="row g-2">
@@ -51,9 +54,8 @@
 <!-- TODO: Calculate height and assign it to hidden input 'height'-->
 <script>
     function changeFunc() {
-        const elem = document.getElementById("age_category");
+        const elem = document.getElementById("height");
         const value = elem.value;
-        console.log(value)
         if(value == 1) {
             const parentSec = document.getElementById("second")
             parentSec.innerHTML = "";
@@ -70,6 +72,7 @@
             input.setAttribute('min', '3')
             input.setAttribute('max', '7')
             input.setAttribute('step', '1')
+            input.setAttribute('required', true)
 
 
             const labelInch = document.createElement("label");
@@ -84,6 +87,7 @@
             inputInch.setAttribute('min', '0')
             inputInch.setAttribute('max', '11')
             inputInch.setAttribute('step', '1')
+            inputInch.setAttribute('required', true)
 
             const parentFeet = document.getElementById("feet")
             const parentInch = document.getElementById("inch")
@@ -108,6 +112,7 @@
             input.setAttribute('min', '100')
             input.setAttribute('max', '230')
             input.setAttribute('step', '1')
+            input.setAttribute('required', true)
 
             const parent = document.getElementById("second")
             parent.appendChild(input)

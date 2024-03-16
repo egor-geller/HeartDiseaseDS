@@ -1,4 +1,3 @@
-# save this as app.py
 from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
@@ -46,8 +45,10 @@ def answer():
             progress_bar = (quest_num - 1) / 10 * 100
             return render_template(template_name, progress_bar=progress_bar, question_number=quest_num - 1)
 
+
 def finish(data):
     return render_template('Finish.html', data=data)
+
 
 def save_data(form):
     if 'user_name' in form:
@@ -56,12 +57,15 @@ def save_data(form):
         answers['age_category'] = form['age_category']
     if 'sex' in form:
         answers['sex'] = form['sex']
-    if 'height' in form:
-        answers['height'] = form['height']
-    if 'smoke_yes' in form:
-        answers['smoke'] = form['smoke_yes']
-    if 'smoke_no' in form:
-        answers['smoke'] = form['smoke_no']
+    if 'cent' in form:
+        answers['cent'] = form['cent']
+    if 'feet' and 'inches' in form:
+        feet = form['feet']
+        inches = form['inches']
+        overall_height_in_cent = convert_us_height_to_centimeters(feet, inches)
+        answers['height'] = overall_height_in_cent
+    if 'smoke' in form:
+        answers['smoke'] = form['smoke']
     if 'general_health' in form:
         answers['general_health'] = form['general_health']
     if 'doctor_visit' in form:
@@ -100,6 +104,10 @@ def save_data(form):
         answers['fried'] = form['fried']
 
     print(answers)
+
+
+def convert_us_height_to_centimeters(feet, inch) -> int:
+    return int(feet * 30.48 + inch * 2.54)
 
 
 if __name__ == '__main__':

@@ -8,13 +8,13 @@
     </div>
 </section>
 <section>
-    <form action="answer" method="POST">
+    <form action="answer" method="POST" class="needs-validation" novalidate>
         <section>
             <h3 class="display-5">Health Status:</h3>
             <h6 class="display-6"> Would you say that in general, your health is </h6>
             <section>
-                <select class="form-select" aria-label="Default select example" name="general_health">
-                    <option selected>Select</option>
+                <select class="form-select" aria-label="Default select example" name="general_health" required>
+                    <option selected disabled value="">Select</option>
                     <option value="Male">Poor</option>
                     <option value="Fair">Fair</option>
                     <option value="Good">Good</option>

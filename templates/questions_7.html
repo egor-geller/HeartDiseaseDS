@@ -8,7 +8,7 @@
     </div>
 </section>
 <section>
-    <form action="answer" method="POST">
+    <form action="answer" method="POST" class="needs-validation" novalidate>
         <section>
             <h3 class="display-5">Exercise:</h3>
             <h6 class="display-6"> During the past month, other than your regular job, did you participate in any
@@ -17,13 +17,13 @@
             <section>
                 <div class="form-check form-check-inline space-between-radio">
                     <label for="exercise_yes" class="form-check-label">Yes</label>
-                    <input type="radio" class="form-check-input" id="exercise_yes" name="exercise_yes" value="yes"
-                           aria-label="yes">
+                    <input type="radio" class="form-check-input" id="exercise_yes" name="exercise" value="yes"
+                           aria-label="yes" required>
                 </div>
                 <div class="form-check form-check-inline">
                     <label for="exercise_no" class="form-check-label">No</label>
-                    <input type="radio" class="form-check-input" id="exercise_no" name="exercise_no" value="no"
-                           aria-label="no">
+                    <input type="radio" class="form-check-input" id="exercise_no" name="exercise" value="no"
+                           aria-label="no" required>
                 </div>
             </section>
             <input type="hidden" name="question_number" value="{{question_number}}">

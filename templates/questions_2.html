@@ -8,16 +8,19 @@
     </div>
 </section>
 <section>
-    <form action="answer" method="POST">
+    <form action="answer" method="POST" class="needs-validation" novalidate>
         <div>
             <h3 class="display-5">Demographic and Screening Questions:</h3>
             <h6 class="display-6"> Sex </h6>
             <div class="mb-3">
-                <select class="form-select" aria-label="Default select example" name="sex">
+                <select class="form-select" aria-label="Default select example" name="sex" required>
                     <option selected>Select sex</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
+                <div class="invalid-feedback">
+                    Please select sex.
+                </div>
             </div>
             <input type="hidden" name="question_number" value="{{question_number}}">
             <div class="space-between">

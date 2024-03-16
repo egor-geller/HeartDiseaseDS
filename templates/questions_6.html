@@ -8,14 +8,14 @@
     </div>
 </section>
 <section>
-    <form action="answer" method="POST">
+    <form action="answer" method="POST" class="needs-validation" novalidate>
         <section>
             <h3 class="display-5">Health Care Access:</h3>
             <h6 class="display-6"> About how long has it been since you last visited a doctor for a routine
                 checkup? </h6>
             <section>
-                <select class="form-select" aria-label="Default select example" name="doctor_visit">
-                    <option selected>Select</option>
+                <select class="form-select" aria-label="Default select example" name="doctor_visit" required>
+                    <option selected disabled value="">Select</option>
                     <option value="1">Within the past year</option>
                     <option value="2">Within the past 2 years</option>
                     <option value="5">Within the past 5 years</option>
