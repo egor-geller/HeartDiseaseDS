@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Finish</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'finish.css') }}">
+<title>Prediction Number</title>
 </head>
 <body>
-    {{data}}
+
+<div class="prediction-container">
+    <h1>Heart Disease</h1>
+    <div class="prediction-number">{{ data }}%</div>
+    <p>This is your prediction for heart disease.</p>
+</div>
+
 </body>
 </html>
